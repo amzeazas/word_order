@@ -3,7 +3,7 @@ var wordCount = function(text) {
   var result = {};
   var highest = 0;
   var words = [];
-  var output = "";
+  var output = [];
 
   newArray.forEach(function(word) {
     if (result.hasOwnProperty(word)) {
@@ -20,13 +20,9 @@ var wordCount = function(text) {
   });
 
   for (var count = highest; count > 0; count--) {
-    words.forEach(function(word) {
+    words.forEach(function(word, value) {
       if (result[word] === count) {
-        if (output == "") {
-          output = word;
-        } else {
-          output = output + ", " + word;
-        }
+        output.push({word: result.word, value : result[word]});
       }
     });
   }
